@@ -17,7 +17,7 @@ const scrapeLogic = async (res) => {
   });
   
     const page1 = await browser.newPage();
-    await page1.goto('https://services.ecourts.gov.in/ecourtindia_v6/'); 
+    await page1.goto('https://services.ecourts.gov.in/ecourtindia_v6/', { timeout: 0 }); 
     console.log('site loaded');
     // const radio = await page1.waitForSelector('input#rdb_0'); 
     // await radio.click();
@@ -31,7 +31,7 @@ const scrapeLogic = async (res) => {
     // declare a variable with an ElementHandle await page1.waitForSelector('input#cino');
     await page1.type('input[id=cino]', 'MHAU030151912016');
     // await page.$eval('input[id=cino]', el => el.value = 'Adenosine triphosphate');
-    const page = await browser.newPage(); await page.goto('https://www.google.com.my/imghp');
+    const page = await browser.newPage(); await page.goto('https://www.google.com.my/imghp', { timeout: 0 });
     console.log('Google Image Search page loaded');
     const button = await page.waitForSelector('div.dRYYxd > div.nDcEnd');
     console.log(button); await button.click();
