@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 app.use('/images', express.static(path.join(__dirname, 'uploads1')));
 const PORT = process.env.PORT || 4000;
-
+console.log(path.join(__dirname, 'uploads1'));
 app.get("/scrape", (req, res) => {
   scrapeLogic(res);
 });
