@@ -21,10 +21,10 @@ const scrapeLogic = async (res) => {
      page1.setDefaultNavigationTimeout(60 * 60 * 1000);
     await page1.goto('https://services.ecourts.gov.in/ecourtindia_v6/', {timeout:300000}); 
     console.log('site loaded');
-    const radio = await page1.waitForSelector('input#rdb_0',{timeout:300000} ); 
-    await radio.click();
+    // const radio = await page1.waitForSelector('input#rdb_0'); 
+    // await radio.click();
   
-    await page1.waitForSelector('img#captcha_image',{timeout:300000});
+    await page1.waitForSelector('img#captcha_image');
     setTimeout(async () => {
       const element = await page1.waitForSelector('img#captcha_image',{timeout:300000});
       await element.screenshot({ path: 'screenshot.png' });
@@ -42,7 +42,7 @@ const scrapeLogic = async (res) => {
     await button.click();
     await button.click();
     console.log('Button clicked2');
-    await page.$eval('.cB9M7', el => el.value = 'https://syedscrape.onrender.com/img');
+    await page.$eval('.cB9M7', el => el.value = 'https://syedscrape2.onrender.com/img');
     setTimeout(async () => {
       const submit = await page.waitForSelector('div.Qwbd3' ,{timeout:300000});
       console.log('----------->', submit);
