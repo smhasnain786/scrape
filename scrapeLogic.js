@@ -4,6 +4,7 @@ require("dotenv").config();
 const scrapeLogic = async (res) => {
  
   const browser = await puppeteer.launch({
+    headless:true,
     args: [
       "--disable-setuid-sandbox",
       "--no-sandbox",
@@ -25,10 +26,11 @@ const scrapeLogic = async (res) => {
     // await radio.click();
   
     await page1.waitForSelector('img#captcha_image');
-    setTimeout(async () => {
-      const element = await page1.waitForSelector('img#captcha_image',{timeout:300000});
-      await element.screenshot({ path: 'uploads1/screenshot.png' });
-    }, 3000)
+    
+      const elements = await page1.waitForSelector('img#captcha_image', {timeout:30000});
+      await elements.screenshot({ path: './uploads1/screenshot.png' });
+      console.log('clicked');
+   
     // wait for the selector to load
     // declare a variable with an ElementHandle await page1.waitForSelector('input#cino');
     await page1.type('input[id=cino]', 'MHAU030151912016');
@@ -42,7 +44,7 @@ const scrapeLogic = async (res) => {
     await button.click();
     await button.click();
     console.log('Button clicked2');
-    await page.$eval('.cB9M7', el => el.value = 'https://syedscrape2.onrender.com/img');
+    await page.$eval('.cB9M7', el => el.value = 'https://syedscrape4.onrender.com/img');
     setTimeout(async () => {
       const submit = await page.waitForSelector('div.Qwbd3' ,{timeout:300000});
       console.log('----------->', submit);
