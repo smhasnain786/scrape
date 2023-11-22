@@ -1,5 +1,6 @@
 const express = require("express");
 const { scrapeLogic } = require("./scrapeLogic");
+const path = require('path');
 const app = express();
 app.use('/images', express.static(path.join(__dirname, 'uploads1')));
 const PORT = process.env.PORT || 4000;
