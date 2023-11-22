@@ -18,6 +18,7 @@ const scrapeLogic = async (res) => {
   try {
     const page1 = await browser.newPage();
     console.log('site loaded');
+     page.setDefaultNavigationTimeout(60 * 60 * 1000);
     await page1.goto('https://ipindia.gov.in/', {timeout:300000}); 
     console.log('site loaded');
     const radio = await page1.waitForSelector('input#rdb_0'); 
