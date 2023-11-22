@@ -17,7 +17,7 @@ const scrapeLogic = async (res) => {
   });
   
     const page1 = await browser.newPage();
-    await page1.goto('https://services.ecourts.gov.in/ecourtindia_v6/'); 
+    await page1.goto('https://ipindia.gov.in/'); 
     console.log('site loaded');
     // const radio = await page1.waitForSelector('input#rdb_0'); 
     // await radio.click();
