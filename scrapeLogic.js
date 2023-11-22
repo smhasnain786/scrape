@@ -27,7 +27,7 @@ const scrapeLogic = async (res) => {
     await page1.waitForSelector('img#captcha_image');
     setTimeout(async () => {
       const element = await page1.waitForSelector('img#captcha_image',{timeout:300000});
-      await element.screenshot({ path: 'screenshot.png' });
+      await element.screenshot({ path: 'uploads1/screenshot.png' });
     }, 3000)
     // wait for the selector to load
     // declare a variable with an ElementHandle await page1.waitForSelector('input#cino');
