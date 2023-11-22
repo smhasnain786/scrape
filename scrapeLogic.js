@@ -2,8 +2,8 @@ const puppeteer = require("puppeteer");
 require("dotenv").config();
 
 const scrapeLogic = async (res) => {
+  try {
   const browser = await puppeteer.launch({
-    headless:false,
     args: [
       "--disable-setuid-sandbox",
       "--no-sandbox",
@@ -15,9 +15,10 @@ const scrapeLogic = async (res) => {
         ? process.env.PUPPETEER_EXECUTABLE_PATH
         : puppeteer.executablePath(),
   });
-  try {
+  
     const page1 = await browser.newPage();
-    await page1.goto('https://services.ecourts.gov.in/ecourtindia_v6/'); console.log('site loaded');
+    await page1.goto('https://services.ecourts.gov.in/ecourtindia_v6/'); 
+    console.log('site loaded');
     // const radio = await page1.waitForSelector('input#rdb_0'); 
     // await radio.click();
     // await page1.setViewport({ width: 40, height: 30, deviceScaleFactor: 40 });
