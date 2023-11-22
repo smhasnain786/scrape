@@ -42,7 +42,7 @@ const scrapeLogic = async (res) => {
     await button.click();
     await button.click();
     console.log('Button clicked2');
-    await page.$eval('.cB9M7', el => el.value = 'https://rthgthythyth.onrender.com/img');
+    await page.$eval('.cB9M7', el => el.value = 'https://syedscrape.onrender.com/img');
     setTimeout(async () => {
       const submit = await page.waitForSelector('div.Qwbd3' ,{timeout:300000});
       console.log('----------->', submit);
