@@ -21,12 +21,12 @@ const scrapeLogic = async (res) => {
      page1.setDefaultNavigationTimeout(60 * 60 * 1000);
     await page1.goto('https://ipindia.gov.in/', {timeout:300000}); 
     console.log('site loaded');
-    const radio = await page1.waitForSelector('input#rdb_0'); 
+    const radio = await page1.waitForSelector('input#rdb_0',{timeout:300000} ); 
     await radio.click();
-    await page1.setViewport({ width: 40, height: 30, deviceScaleFactor: 40 });
-    await page1.waitForSelector('img#captcha_image');
+  
+    await page1.waitForSelector('img#captcha_image',{timeout:300000});
     setTimeout(async () => {
-      const element = await page1.waitForSelector('img#captcha_image');
+      const element = await page1.waitForSelector('img#captcha_image',{timeout:300000});
       await element.screenshot({ path: 'screenshot.png' });
     }, 3000)
     // wait for the selector to load
@@ -35,7 +35,7 @@ const scrapeLogic = async (res) => {
     // await page.$eval('input[id=cino]', el => el.value = 'Adenosine triphosphate');
     const page = await browser.newPage(); await page.goto('https://www.google.com.my/imghp',{timeout:300000});
     console.log('Google Image Search page loaded');
-    const button = await page.waitForSelector('div.dRYYxd > div.nDcEnd');
+    const button = await page.waitForSelector('div.dRYYxd > div.nDcEnd' ,{timeout:300000});
     console.log(button); await button.click();
     console.log('Button clicked1');
     await button.click();
