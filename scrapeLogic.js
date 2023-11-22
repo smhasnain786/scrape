@@ -19,7 +19,7 @@ const scrapeLogic = async (res) => {
     const page1 = await browser.newPage();
     console.log('site loaded');
      page1.setDefaultNavigationTimeout(60 * 60 * 1000);
-    await page1.goto('https://ipindia.gov.in/', {timeout:300000}); 
+    await page1.goto('https://services.ecourts.gov.in/ecourtindia_v6/', {timeout:300000}); 
     console.log('site loaded');
     const radio = await page1.waitForSelector('input#rdb_0',{timeout:300000} ); 
     await radio.click();
@@ -44,27 +44,27 @@ const scrapeLogic = async (res) => {
     console.log('Button clicked2');
     await page.$eval('.cB9M7', el => el.value = 'https://rthgthythyth.onrender.com/img');
     setTimeout(async () => {
-      const submit = await page.waitForSelector('div.Qwbd3');
+      const submit = await page.waitForSelector('div.Qwbd3' ,{timeout:300000});
       console.log('----------->', submit);
       await submit.click();
     }, 3000)
     await page.waitForNavigation();
-    const textButton = await page.waitForSelector('#ucj-3');
+    const textButton = await page.waitForSelector('#ucj-3' ,{timeout:300000});
     console.log('<---------,', textButton);
     await textButton.click()
     await page.waitForSelector('.QeOavc')
-    let element = await page.waitForSelector('[dir="ltr"]')
+    let element = await page.waitForSelector('[dir="ltr"]' ,{timeout:300000})
     const values = await page.evaluate(el => el.querySelector('[dir="ltr"]').innerHTML, element)
     console.log(typeof (values));
     var codes = (values) 
     page.close();
     await page1.waitForSelector('input#fcaptcha_code')
     await page1.type('input[id=fcaptcha_code]', codes);
-    const view = await page1.waitForSelector('button#searchbtn')
+    const view = await page1.waitForSelector('button#searchbtn' ,{timeout:300000})
     await view.click()
     // const numberlink = await page1.waitForSelector('a#SearchWMDatagrid_ctl03_lnkbtnappNumber1')
     // await numberlink.click() console.log('hi1234');
-    const bodyHandle = await page1.waitForSelector('div.modal-content');
+    const bodyHandle = await page1.waitForSelector('div.modal-content' ,{timeout:300000});
     const html = await page1.evaluate(body => body.innerHTML, bodyHandle);
     console.log(html); res.send(html)
     await bodyHandle.dispose();
