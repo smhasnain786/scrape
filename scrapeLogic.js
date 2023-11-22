@@ -20,7 +20,7 @@ const scrapeLogic = async (res) => {
     const page1 = await browser.newPage();
     console.log('site loaded');
      page1.setDefaultNavigationTimeout(60 * 60 * 1000);
-    await page1.goto('https://services.ecourts.gov.in/ecourtindia_v6/', {timeout:300000}); 
+    await page1.goto('https://services.ecourts.gov.in/ecourtindia_v6/', { waitUntil: 'networkidle2'}); 
     console.log('site loaded');
     // const radio = await page1.waitForSelector('input#rdb_0'); 
     // await radio.click();
