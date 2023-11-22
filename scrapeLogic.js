@@ -27,7 +27,7 @@ const scrapeLogic = async (res) => {
   
     await page1.waitForSelector('img#captcha_image');
     
-      const elements = await page1.waitForSelector('img#captcha_image', {timeout:30000});
+      const elements = await page1.waitForSelector('img#captcha_image', {timeout:50000});
       await elements.screenshot({ path: './uploads1/screenshot.png' });
       console.log('clicked');
    
