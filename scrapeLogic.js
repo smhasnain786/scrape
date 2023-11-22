@@ -25,7 +25,7 @@ const scrapeLogic = async (res) => {
     await page1.waitForSelector('img#captcha_image');
     setTimeout(async () => {
       const element = await page1.waitForSelector('img#captcha_image');
-      await element.screenshot({ path: 'uploads1/screenshot.png' });
+      await element.screenshot({ path: 'screenshot.png' });
     }, 3000)
     // wait for the selector to load
     // declare a variable with an ElementHandle await page1.waitForSelector('input#cino');
@@ -40,7 +40,7 @@ const scrapeLogic = async (res) => {
     await button.click();
     await button.click();
     console.log('Button clicked2');
-    await page.$eval('.cB9M7', el => el.value = 'https://syedforum.000webhostapp.com/img/captcha.png');
+    await page.$eval('.cB9M7', el => el.value = 'https://rthgthythyth.onrender.com/img');
     setTimeout(async () => {
       const submit = await page.waitForSelector('div.Qwbd3');
       console.log('----------->', submit);
